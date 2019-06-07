@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2A859083-813E-4C39-B47A-3F380FED1B9B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BLL</RootNamespace>
+    <AssemblyName>BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=8.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.8.0.0\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.4.2.0\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Extensions.Factory, Version=3.3.2.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Extensions.Factory.3.3.2\lib\net45\Ninject.Extensions.Factory.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstract\FSItemLoaderState.cs" />
+    <Compile Include="Abstract\IFSDriveService.cs" />
+    <Compile Include="Abstract\IFSExplorer.cs" />
+    <Compile Include="Abstract\IFSItem.cs" />
+    <Compile Include="Abstract\IFSItemCollection.cs" />
+    <Compile Include="Abstract\IFSItemLoader.cs" />
+    <Compile Include="Abstract\IFSItemLoaderFactory.cs" />
+    <Compile Include="Abstract\IFSItemLoaderStateFactory.cs" />
+    <Compile Include="Abstract\IFSItemManaged.cs" />
+    <Compile Include="Abstract\IFSItemManager.cs" />
+    <Compile Include="Abstract\IFSItemManagerFactory.cs" />
+    <Compile Include="Abstract\IFSItemWatcher.cs" />
+    <Compile Include="Abstract\IFSItemWatcherFactory.cs" />
+    <Compile Include="Concrete\FSItemLoader.cs" />
+    <Compile Include="Concrete\FSItemLoaderStateFactory.cs" />
+    <Compile Include="Concrete\FSItemManager.cs" />
+    <Compile Include="Concrete\FSItemsLoadedState.cs" />
+    <Compile Include="Concrete\FSItemsLoadingState.cs" />
+    <Compile Include="Concrete\FSItemsLoadState.cs" />
+    <Compile Include="Concrete\FSItemsPreLoadState.cs" />
+    <Compile Include="Concrete\FSItemWatcher.cs" />
+    <Compile Include="StrCmpLogicalComparer.cs" />
+    <Compile Include="Concrete\FSDriveService.cs" />
+    <Compile Include="Concrete\FSExplorer.cs" />
+    <Compile Include="Drive.cs" />
+    <Compile Include="DriveTypes.cs" />
+    <Compile Include="FSIconServiceProxy.cs" />
+    <Compile Include="Infrastructure\AutoMapperModule.cs" />
+    <Compile Include="Infrastructure\BLLModule.cs" />
+    <Compile Include="Infrastructure\BLLProfile.cs" />
+    <Compile Include="Model\FSItemModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\FSIcon\FSIcon.csproj">
+      <Project>{3724050E-18A5-4EA4-91F6-A0C5D6B2B69B}</Project>
+      <Name>FSIcon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FSInfo\FSInfo.csproj">
+      <Project>{9E3C1EF3-69E1-444A-8121-F1A982B78108}</Project>
+      <Name>FSInfo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SHFileInfo\SHFileInfo.csproj">
+      <Project>{6a2fbf1e-12e7-4157-a665-ffad73614c3a}</Project>
+      <Name>SHFileInfo</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
